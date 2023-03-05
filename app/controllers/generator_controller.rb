@@ -9,7 +9,13 @@ class GeneratorController < ApplicationController
     @status = true
 
     begin
-      clients_filling
+      # clients_filling
+      # banned_clients_filling
+      # speech_therapist_filling
+      # services_filling
+      # rates_filling
+      # comments_filling
+      contracts_filling
     rescue StandardError => e
       @status = false
       @exception = e
