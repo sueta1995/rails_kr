@@ -1,0 +1,15 @@
+<%= form_with scope: :session, url: session_path, data: {turbo: false} do |form| %>
+  <h2 class="fw-bold mb-2 text-uppercase">Вход</h2>
+  <p class="text-50 mb-5">Введите ваши имя пользователя и пароль!</p>
+
+  <div class="form-outline form-white mb-4">
+    <%= form.label :username, 'Ваш email-адрес', class: 'form-label' %>
+    <%= form.text_field :username, class: 'form-control form-control-lg' %>
+  </div>
+  <div class="form-outline form-white mb-4">
+    <%= form.label :password, 'Ваш пароль', class: 'form-label' %>
+    <%= form.password_field :password, class: 'form-control form-control-lg' %>
+  </div>
+
+  <%= form.submit 'Войти', class: 'btn btn-dark fs-5' %>
+<% end %>

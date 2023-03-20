@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+main {
+	flex-grow: 1;
+}
+
+footer {
+    flex-shrink: 0;
+}
