@@ -1,1 +1,27 @@
-<%= @query %>
+<h2>Ваш отчет</h2>
+<br>
+
+<% if @count.zero? %>
+  <p>Нет результатов</p>
+<% else %>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th scope='col'>#</th>
+        <% @keys.each do |key| %>
+          <th scope='col'><%= key %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @results.each_index do |index| %>
+        <tr>
+          <th scope='row'><%= index + 1 %></th>
+          <% @keys.each do |key| %>
+            <td><%= @results[index][key] %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

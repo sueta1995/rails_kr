@@ -7,7 +7,7 @@ class ReportsController < ApplicationController
   def index
     # @query = ActiveRecord::Base.connection.execute('select * from clients').to_a  
     @@query_types = {
-      'first_sql' => 1,
+      'first_sql' => first_sql,
       'second_sql' => 2,
       'third_sql' => 3,
       'fourth_sql' => 4,
@@ -16,6 +16,14 @@ class ReportsController < ApplicationController
   end
 
   def create
-    @query = @@query_types[@query_params]
+    query = @@query_types[@query_params]
+
+    if query.present?
+      @results = ActiveRecord::Base.connection.execute(query).to_a
+      @count = @results.count
+      @keys = @results[0].keys if @count.nonzero?
+    else
+      redirect_to root_path, alert: 'Выберите правильный запрос!'
+    end
   end
 end
