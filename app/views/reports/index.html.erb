@@ -2,16 +2,29 @@
 <p>Выберите нужный вариант отчета:</p>
 
 <%= form_with url: '/reports/create', method: :post do |form| %>
-  <%= form.radio_button :report, 'first_sql', class: 'form-check-input' %>
-  <%= form.label :report_first_sql, 'Количество нейтральных клиентов (не являющихся логопедами и не заключивших контракт с логопедами одновременно)' %><br>
+  <% if current_user == 'administrator' %>
+    <%= form.radio_button :report, 'first_sql', class: 'form-check-input' %>
+    <%= form.label :report_first_sql, 'Количество нейтральных клиентов (не являющихся логопедами и не заключивших контракт с логопедами одновременно)' %><br>
+  <% end %>
+  
   <%= form.radio_button :report, 'second_sql', class: 'form-check-input' %>
   <%= form.label :report_second_sql, 'Логопеды, у которых нет услуг' %><br>
+
   <%= form.radio_button :report, 'third_sql', class: 'form-check-input' %>
   <%= form.label :report_third_sql, 'Средняя оценка у логопеда, у которого больше всего услуг' %><br>
-  <%= form.radio_button :report, 'fourth_sql', class: 'form-check-input' %>
-  <%= form.label :report_fourth_sql, 'Логопед, у которого больше всего договоров' %><br>
-  <%= form.radio_button :report, 'fifth_sql', class: 'form-check-input' %>
-  <%= form.label :report_fifth_sql, 'Кто тратит больше всего из клиентов' %><br><br>
+  
+  <% if current_user == 'administrator' %>
+    <%= form.radio_button :report, 'fourth_sql', class: 'form-check-input' %>
+    <%= form.label :report_fourth_sql, 'Логопед, у которого больше всего договоров' %><br>
+  <% end %>
+  
+  <% if current_user == 'administrator' %>
+    <%= form.radio_button :report, 'fifth_sql', class: 'form-check-input' %>
+    <%= form.label :report_fifth_sql, 'Кто тратит больше всего из клиентов' %><br>
+  <% end %>
+
+  <br>
+  
   <%= form.submit 'Получить отчет', class: 'btn btn-dark fs-5' %>
 <% end %>
 

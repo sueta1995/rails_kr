@@ -8,10 +8,10 @@ class ReportsController < ApplicationController
     # @query = ActiveRecord::Base.connection.execute('select * from clients').to_a  
     @@query_types = {
       'first_sql' => first_sql,
-      'second_sql' => 2,
-      'third_sql' => 3,
-      'fourth_sql' => 4,
-      'fifth_sql' => 5
+      'second_sql' => second_sql,
+      'third_sql' => third_sql,
+      'fourth_sql' => fourth_sql,
+      'fifth_sql' => fifth_sql
     }
   end
 
