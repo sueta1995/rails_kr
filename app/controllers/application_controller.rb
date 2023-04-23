@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# класс контроллера приложения
 class ApplicationController < ActionController::Base
   helper_method :current_user
 

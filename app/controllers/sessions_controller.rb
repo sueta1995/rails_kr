@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# класс контроллера для работы с сессиями
 class SessionsController < ApplicationController
   before_action :set_params, only: %i[create]
   before_action :connnect_database, only: %i[create]
@@ -5,21 +8,18 @@ class SessionsController < ApplicationController
 
   include SessionsHelper
 
-  def new
-  end
+  def new; end
 
   def create
-    begin
-      ActiveRecord::Base.connection.instance_eval { @config[:database] }.nil?
+    ActiveRecord::Base.connection.instance_eval { @config[:database] }.nil?
 
-      set_info
+    set_info
 
-      redirect_to root_path, notice: 'Вы успешно зашли в аккаунт!'
-    rescue Exception => e
-      flash.now[:alert] = 'Неправильные данные аккаунта!'
+    redirect_to root_path, notice: 'Вы успешно зашли в аккаунт!'
+  rescue StandardError
+    flash.now[:alert] = 'Неправильные данные аккаунта!'
 
-      render :new
-    end
+    render :new
   end
 
   def destroy

@@ -8,10 +8,12 @@
   <% end %>
   
   <%= form.radio_button :report, 'second_sql', class: 'form-check-input' %>
-  <%= form.label :report_second_sql, 'Логопеды, у которых нет услуг' %><br>
+  <%= form.label :report_second_sql, 'Логопед с самой высокой оценкой' %><br>
 
-  <%= form.radio_button :report, 'third_sql', class: 'form-check-input' %>
-  <%= form.label :report_third_sql, 'Средняя оценка у логопеда, у которого больше всего услуг' %><br>
+  <% if current_user == 'administrator' %>
+    <%= form.radio_button :report, 'third_sql', class: 'form-check-input' %>
+    <%= form.label :report_third_sql, 'Количество договоров для каждого из типов услуг' %><br>
+  <% end %>
   
   <% if current_user == 'administrator' %>
     <%= form.radio_button :report, 'fourth_sql', class: 'form-check-input' %>
@@ -22,6 +24,14 @@
     <%= form.radio_button :report, 'fifth_sql', class: 'form-check-input' %>
     <%= form.label :report_fifth_sql, 'Кто тратит больше всего из клиентов' %><br>
   <% end %>
+
+  <% if current_user == 'administrator' %>
+    <%= form.radio_button :report, 'sixth_sql', class: 'form-check-input' %>
+    <%= form.label :report_fifth_sql, 'Заблокированные логопеды' %><br>
+  <% end %>
+
+  <%= form.radio_button :report, 'seventh_sql', class: 'form-check-input' %>
+  <%= form.label :report_third_sql, 'Логопеды, которым на момент создания КР 18 лет' %><br>
 
   <br>
   

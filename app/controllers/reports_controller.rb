@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# класс контроллера отчетов
 class ReportsController < ApplicationController
   before_action :check_current_user, only: %i[index]
   before_action :set_params, only: %i[create]
@@ -5,13 +8,15 @@ class ReportsController < ApplicationController
   include ReportsHelper
 
   def index
-    # @query = ActiveRecord::Base.connection.execute('select * from clients').to_a  
+    # @query = ActiveRecord::Base.connection.execute('select * from clients').to_a
     @@query_types = {
       'first_sql' => first_sql,
       'second_sql' => second_sql,
       'third_sql' => third_sql,
       'fourth_sql' => fourth_sql,
-      'fifth_sql' => fifth_sql
+      'fifth_sql' => fifth_sql,
+      'sixth_sql' => sixth_sql,
+      'seventh_sql' => seventh_sql
     }
   end
 
