@@ -12,7 +12,7 @@
 
   <% if current_user == 'administrator' %>
     <%= form.radio_button :report, 'third_sql', class: 'form-check-input' %>
-    <%= form.label :report_third_sql, 'Средняя оценка у логопеда, у которого больше всего услуг' %><br>
+    <%= form.label :report_third_sql, 'Количество договоров для каждого типа услуг' %><br>
   <% end %>
 
   <% if current_user == 'administrator' %>
