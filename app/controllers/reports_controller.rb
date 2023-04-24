@@ -11,7 +11,9 @@ class ReportsController < ApplicationController
       'second_sql' => second_sql,
       'third_sql' => third_sql,
       'fourth_sql' => fourth_sql,
-      'fifth_sql' => fifth_sql
+      'fifth_sql' => fifth_sql,
+      'sixth_sql' => six_sql,
+      'seventh_sql' => seventh_sql
     }
   end
 
